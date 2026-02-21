@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Aniversário Mamãe Janete</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#ff6a88,#ff99ac);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* Tela inicial */
+#inicio{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4d79;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+#conteudo{
+    display:none;
+    padding:30px 20px;
+}
+
+img{
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid white;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+    margin-top:20px;
+}
+
+h1{
+    font-size:32px;
+}
+
+p{
+    max-width:500px;
+    margin:20px auto;
+    line-height:1.7;
+    font-size:18px;
+}
+
+/* Corações */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:subir 5s linear infinite;
+}
+
+@keyframes subir{
+    from{transform:translateY(0);opacity:1;}
+    to{transform:translateY(-800px);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div id="inicio">
+    <h1>🎉 Hoje é um dia muito especial 🎉</h1>
+    <button onclick="abrirSurpresa()">Clique aqui, mamãe ❤️</button>
+</div>
+
+<div id="conteudo">
+    <h1>Feliz Aniversário, Mamãe Janete 💖</h1>
+
+    <img src="mae.jpg" alt="Minha Mãe">
+
+    <p>
+        Mãe, hoje o mundo celebra a mulher mais incrível que eu conheço.
+        Obrigado por cada conselho, cada abraço, cada esforço e cada momento
+        que você dedicou a mim.
+    </p>
+
+    <p>
+        Você é minha força, meu exemplo e meu maior orgulho.
+        Que Deus te abençoe com muita saúde, felicidade e muitos anos de vida.
+    </p>
+
+    <h2>Eu te amo infinitamente ❤️</h2>
+</div>
+
+<audio id="musica" src="musica.mp3"></audio>
+
+<script>
+function abrirSurpresa(){
+    document.getElementById("inicio").style.display="none";
+    document.getElementById("conteudo").style.display="block";
+    document.getElementById("musica").play();
+}
+
+// Corações animados
+function criarCoracao(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*2+3)+"s";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{heart.remove();},5000);
+}
+
+setInterval(criarCoracao,300);
+</script>
+
+</body>
+</html>
